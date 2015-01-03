@@ -1,0 +1,5 @@
+{{<layout}}
+	{{$content}}
+		<h1>live</h1>
+	{{/content}}
+{{/layout}}
