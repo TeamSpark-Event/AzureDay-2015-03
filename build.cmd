@@ -1,0 +1,1 @@
+lessc --compress public\stylesheets\style.less > public\stylesheets\style.css

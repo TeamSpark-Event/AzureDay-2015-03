@@ -1,0 +1,5 @@
+{{<layout}}
+	{{$content}}
+		<h1>registration</h1>
+	{{/content}}
+{{/layout}}
