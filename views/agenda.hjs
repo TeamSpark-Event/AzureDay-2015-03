@@ -1,0 +1,5 @@
+{{<layout}}
+	{{$content}}
+		<h1>agenda</h1>
+	{{/content}}
+{{/layout}}
