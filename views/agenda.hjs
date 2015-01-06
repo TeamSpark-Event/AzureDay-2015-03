@@ -1,5 +1,10 @@
 {{<layout}}
 	{{$content}}
 		<h1>agenda</h1>
+		<ul>
+			{{#agenda}}
+				<li>{{RowKey._}} - {{Title._}}</li>
+			{{/agenda}}
+		</ul>
 	{{/content}}
 {{/layout}}
