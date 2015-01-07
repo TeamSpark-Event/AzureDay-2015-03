@@ -10,10 +10,20 @@ service.init = function() {
 	//tableService.createTableIfNotExists('');
 };
 
-service.getEntities = function(tableName) {
+service.getEntities = function(tableName, partitionKey, rowKey) {
 	var promise = new Promise();
 
-	tableService.queryEntities(tableName, null, null, function(error, result){
+	var query = new azure.TableQuery();
+
+	if (typeof(partitionKey) !== 'undefined') {
+		query = query.where('PartitionKey eq ?', partitionKey);
+	}
+
+	if (typeof(rowKey) !== 'undefined') {
+		query = query.where('RowKey eq ?', rowKey);
+	}
+
+	tableService.queryEntities(tableName, query, null, function(error, result){
 		promise.resolve(result.entries);
 	});
 
