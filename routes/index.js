@@ -30,10 +30,14 @@ router.get('/registration', function(req, res) {
 });
 
 router.get('/speakers', function(req, res) {
-    res.render('speakers', {
-        partials: {
-            layout: "layout/base"
-        }});
+    dataStorage.getEntities('AzureDaySpeakers', '2015-03').then(function(result) {
+        res.render('speakers', {
+            speakers: result,
+            partials: {
+                layout: "layout/base"
+            }
+        });
+    });
 });
 
 router.get('/locations', function(req, res) {
