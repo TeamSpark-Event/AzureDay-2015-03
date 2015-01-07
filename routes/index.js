@@ -13,7 +13,7 @@ router.get('/', function(req, res) {
 });
 
 router.get('/agenda', function(req, res) {
-    dataStorage.getEntities('AzureDayAgenda', '2015-03').then(function(result){
+    dataStorage.getEntities('AzureDayAgenda', '2015-03').then(function(result) {
         res.render('agenda', {
             agenda: result,
             partials: {
