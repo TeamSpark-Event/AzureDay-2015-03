@@ -7,7 +7,9 @@ var tableService = azure.createTableService('azureua', 'H08CJ9AEAtvVwLiarDNS0ZRr
 var service = {};
 
 service.init = function() {
-	//tableService.createTableIfNotExists('');
+	tableService.createTableIfNotExists('AzureDayAgenda', function() {});
+	tableService.createTableIfNotExists('AzureDayRegistration', function() {});
+	tableService.createTableIfNotExists('AzureDaySpeakers', function() {});
 };
 
 service.getEntities = function(tableName, partitionKey, rowKey) {

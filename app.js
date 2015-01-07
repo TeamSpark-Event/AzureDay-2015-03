@@ -24,6 +24,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', homeController);
 
+// initialize azure table storage
+var dataStorage = require(path.join(__dirname, '/services/DataStorage'));
+dataStorage.init();
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
