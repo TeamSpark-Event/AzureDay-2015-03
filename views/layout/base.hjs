@@ -52,7 +52,7 @@
         {
             position: relative;
             float: left;
-            margin: 0;
+            margin: 0 10px 0 0; /* padding between images */
             padding: 0;
             /* If you don't want the images in the scroller to be selectable, try the following
                block of code. It's just a nice feature that prevent the images from
@@ -62,6 +62,11 @@
             -moz-user-select: none;
             -o-user-select: none;
             user-select: none;
+        }
+
+        #makeMeScrollable div.scrollableArea img:last-child
+        {
+            margin: 0; /* no padding on last image */
         }
     </style>
 

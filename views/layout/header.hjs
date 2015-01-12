@@ -3,20 +3,40 @@
     <div class="row" style="height: 125px;">
         <div class="col-md-2">
             <div style="width: 120px; margin: auto; padding-top: 20px; padding-bottom: 3px; padding-left: 3px; padding-right: 3px;">
-                <img style="width: 60px; height: 45px;" src="images/icons/video-black.png" alt="video">
-            </div>
-            <div style="font-weight: normal; font-size: 1.2em;">
-                ТРАНСЛЯЦИЯ
+                <a href="#" style="width: 120px; margin: auto; display: block;">
+                    <img style="width: 60px; height: 45px; margin: auto; display: block;" src="images/icons/video-black.png" alt="video">
+                    <span style="width: 120px; padding-top: 5px; display: block; text-align: center; font-size: 1.2em;">ТРАНСЛЯЦИЯ
+                    </span>
+                </a>
             </div>
         </div>
-        <div class="col-md-8">8
+        <div class="col-md-8">
+            <div style="display: block; margin-top: 30px;">
+                <a class="mm-agenda" href="#">
+                    <span>расписание
+                    </span>
+                </a>
+                <a class="mm-speakers" href="#">
+                    <span>докладчики
+                    </span>
+                </a>
+                <a class="mm-register" href="#">
+                    <span style="padding-left: 45px !important;">регистрация
+                    </span>
+                </a>
+                <a class="mm-map" href="#">
+                    <span style="padding-left: 60px !important;">локации
+                    </span>
+                </a>
+
+            </div>
         </div>
         <div class="col-md-2">
-            <div>
+            <div style="font-size: 20px; padding: 30px 0 0 0;">
                 Вопросы?
             </div>
-            <div>
-                myname@mysite.com
+            <div style="font-size: 18px;">
+                <a href="mailto:someone@example.com?Subject=AzureDAY2015">myname@mysite.com</a>
             </div>
         </div>
 
@@ -28,14 +48,9 @@
         <div class="col-md-12">
             <!-- scroll -->
             <div id="makeMeScrollable">
-                <img src="Smooth-Div-Scroll/images/demo/field.jpg" alt="Demo image" id="field" />
-                <img src="Smooth-Div-Scroll/images/demo/gnome.jpg" alt="Demo image" id="gnome" />
-                <img src="Smooth-Div-Scroll/images/demo/pencils.jpg" alt="Demo image" id="pencils" />
-                <img src="Smooth-Div-Scroll/images/demo/golf.jpg" alt="Demo image" id="golf" />
-                <img src="Smooth-Div-Scroll/images/demo/river.jpg" alt="Demo image" id="river" />
-                <img src="Smooth-Div-Scroll/images/demo/train.jpg" alt="Demo image" id="train" />
-                <img src="Smooth-Div-Scroll/images/demo/leaf.jpg" alt="Demo image" id="leaf" />
-                <img src="Smooth-Div-Scroll/images/demo/dog.jpg" alt="Demo image" id="dog" />
+                <img src="Smooth-Div-Scroll/images/azure/cloud-one.jpg" alt="get your data into cloud" id="cloud01" />
+                <img src="Smooth-Div-Scroll/images/azure/cloud-two.jpg" alt="cloud" id="cloud02" />
+                <img src="Smooth-Div-Scroll/images/azure/cloud-three.jpg" alt="cloud image" id="cloud03" />
             </div>
 
             <div style="position: absolute; width: 150px; height: 150px; display: block; background-image: url('images/backgrounds/blue.png'); background-repeat: repeat; top: 10px; left: 35px;">
@@ -69,7 +84,7 @@
 <div class="container" style="width: 1200px;">
     <div class="row">
         <div class="col-md-12">
-            <div style="width: 1200px; height: 115px; background-color: #0097FC; color: #fff; position: relative; top: -10px; font-family: Tahoma; font-size: 2.5em; line-height: 1.0;">
+            <div style="width: 1200px; height: 115px; background-color: #0097FC; color: #fff; position: relative; top: 10px; font-family: Tahoma; font-size: 2.5em; line-height: 1.0;">
                 <div style="display: inline-block; width: 125px; height: 115px;">
                     <img src="images/icons/cloud-white.png" alt="cloud" style="width: 125px; height: 80px; margin: -30px 20px 0px 40px;">
                 </div>
