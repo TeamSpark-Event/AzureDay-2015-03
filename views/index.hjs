@@ -1,5 +1,9 @@
 {{<layout}}
     {{$content}}
-        <h1>index</h1>
+        <div class="container">
+            <h2>CONTENT</h2>
+            <h2>{{ page.title }}</h2>
+        </div>
+
     {{/content}}
 {{/layout}}
