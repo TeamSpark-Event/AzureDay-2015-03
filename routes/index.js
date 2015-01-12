@@ -1,19 +1,30 @@
+var path = require('path');
+
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
+var dataStorage = require(path.join(__dirname, '../services/DataStorage'));
+
 router.get('/', function(req, res) {
     res.render('index', {
+        page:
+        {
+        },
         partials: {
+            header: 'layout/header',
+            footer: 'layout/footer',
             layout: "layout/base"
         }});
 });
 
 router.get('/agenda', function(req, res) {
-    res.render('agenda', {
-        partials: {
-            layout: "layout/base"
-        }});
+    dataStorage.getEntities('AzureDayAgenda', '2015-03').then(function(result) {
+        res.render('agenda', {
+            agenda: result,
+            partials: {
+                layout: "layout/base"
+            }});
+    });
 });
 
 router.get('/registration', function(req, res) {
@@ -24,10 +35,14 @@ router.get('/registration', function(req, res) {
 });
 
 router.get('/speakers', function(req, res) {
-    res.render('speakers', {
-        partials: {
-            layout: "layout/base"
-        }});
+    dataStorage.getEntities('AzureDaySpeakers', '2015-03').then(function(result) {
+        res.render('speakers', {
+            speakers: result,
+            partials: {
+                layout: "layout/base"
+            }
+        });
+    });
 });
 
 router.get('/locations', function(req, res) {

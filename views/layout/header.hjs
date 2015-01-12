@@ -1,0 +1,99 @@
+<div class="container" style="width: 1200px;">
+
+    <div class="row" style="height: 125px;">
+        <div class="col-md-2">
+            <div style="width: 120px; margin: auto; padding-top: 20px; padding-bottom: 3px; padding-left: 3px; padding-right: 3px;">
+                <a href="#" style="width: 120px; margin: auto; display: block;">
+                    <img style="width: 60px; height: 45px; margin: auto; display: block;" src="images/icons/video-black.png" alt="video">
+                    <span style="width: 120px; padding-top: 5px; display: block; text-align: center; font-size: 1.2em;">ТРАНСЛЯЦИЯ
+                    </span>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div style="display: block; margin-top: 30px;">
+                <a class="mm-agenda" href="#">
+                    <span>расписание
+                    </span>
+                </a>
+                <a class="mm-speakers" href="#">
+                    <span>докладчики
+                    </span>
+                </a>
+                <a class="mm-register" href="#">
+                    <span style="padding-left: 45px !important;">регистрация
+                    </span>
+                </a>
+                <a class="mm-map" href="#">
+                    <span style="padding-left: 60px !important;">локации
+                    </span>
+                </a>
+
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div style="font-size: 20px; padding: 30px 0 0 0;">
+                Вопросы?
+            </div>
+            <div style="font-size: 18px;">
+                <a href="mailto:someone@example.com?Subject=AzureDAY2015">myname@mysite.com</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="container" style="width: 1200px;">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- scroll -->
+            <div id="makeMeScrollable">
+                <img src="Smooth-Div-Scroll/images/azure/cloud-one.jpg" alt="get your data into cloud" id="cloud01" />
+                <img src="Smooth-Div-Scroll/images/azure/cloud-two.jpg" alt="cloud" id="cloud02" />
+                <img src="Smooth-Div-Scroll/images/azure/cloud-three.jpg" alt="cloud image" id="cloud03" />
+            </div>
+
+            <div style="position: absolute; width: 150px; height: 150px; display: block; background-image: url('images/backgrounds/blue.png'); background-repeat: repeat; top: 10px; left: 35px;">
+                <div style="font-family: Tahoma; font-size: 1.8em; line-height: 1.05; text-align: left; font-weight: bold; color: #fff; padding: 25px 5px 25px 10px;">
+                    AzureDAY <br />
+                    2015
+                </div>
+                <div style="font-family: Tahoma; font-size: 1.4em; line-height: 1.0; text-align: left; font-weight: normal; color: #fff; padding: 0px 5px 0px 10px;">
+                    14е марта
+                </div>
+
+            </div>
+
+            <div style="position: absolute; width: 150px; height: 150px; display: block; background-image: url('images/backgrounds/yellow.png'); background-repeat: repeat; top: 170px; left: 35px;">
+                <div style="font-family: Tahoma; font-size: 1.8em; line-height: 1.05; text-align: left; font-weight: bold; color: #fff; padding: 25px 5px 25px 10px;">
+                    AzureDAY <br />
+                    2015
+                </div>
+                <div style="font-family: Tahoma; font-size: 1.4em; line-height: 1.0; text-align: left; font-weight: normal; color: #fff; padding: 0px 5px 0px 10px;">
+                    14е марта
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="container" style="width: 1200px;">
+    <div class="row">
+        <div class="col-md-12">
+            <div style="width: 1200px; height: 115px; background-color: #0097FC; color: #fff; position: relative; top: 10px; font-family: Tahoma; font-size: 2.5em; line-height: 1.0;">
+                <div style="display: inline-block; width: 125px; height: 115px;">
+                    <img src="images/icons/cloud-white.png" alt="cloud" style="width: 125px; height: 80px; margin: -30px 20px 0px 40px;">
+                </div>
+                <div style="display: inline-block; width: 940px; margin: 15px 20px 0 80px; line-height: 1.0;">
+                    <span style="font-weight: bold;">AzureDAY 2015</span> - первая мини-конференция украинского Azure community
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

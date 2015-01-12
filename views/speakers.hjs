@@ -1,5 +1,12 @@
 {{<layout}}
 	{{$content}}
 		<h1>speakers</h1>
+		<table>
+			{{#speakers}}
+				<tr>
+					<td>{{RowKey._}}</td>
+				</tr>
+			{{/speakers}}
+		</table>
 	{{/content}}
 {{/layout}}

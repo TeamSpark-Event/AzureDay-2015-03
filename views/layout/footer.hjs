@@ -1,0 +1,43 @@
+<div class="container" style="width: 1200px;">
+    <div class="row myfooter">
+        <div class="col-md-2">
+            <a href="#" style="width: 120px; margin: 0; display: block; position: relative; top: 20px; left: 0;">
+                <img style="width: 60px; height: 45px; margin: auto; display: block;" src="images/icons/video-white.png" alt="video">
+                    <span style="width: 120px; padding-top: 5px; display: block; text-align: center; color: #fff;">ТРАНСЛЯЦИЯ
+                    </span>
+            </a>
+        </div>
+        <div class="col-md-2">
+            <a href="#">расписание</a>
+        </div>
+        <div class="col-md-2">
+            <a href="#">докладчики</a>
+        </div>
+        <div class="col-md-2">
+            <a href="#">регистрация</a>
+        </div>
+        <div class="col-md-2">
+            <div>
+                <a href="#">локации</a>
+                <span>
+                <a href="#">партнеры</a>
+                </span>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div style="font-size: 20px; padding: 30px 0 0 0;">
+                Вопросы?
+                <span style="font-size: 18px;">
+                <a href="mailto:someone@example.com?Subject=AzureDAY2015">myname@mysite.com</a>
+                </span>
+            </div>
+        </div>
+
+        <div style="position: relative; top: 40px; left: 10px; margin: auto; width: 150px; display: block; font-size: 16px; color: #000;">
+            AzureDAY © 2015
+        </div>
+
+    </div>
+
+
+</div>
