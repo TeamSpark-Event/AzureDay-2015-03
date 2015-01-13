@@ -6,10 +6,55 @@
 @red: #f00;
 @dark-grey: #666;
 
+/* FONTS */
+
+@Tahoma: "Tahoma", Arial, sans-serif;
+@Arial: "Arial", Arial, sans-serif;
+
+/* HEADERS */
+
+h1 {
+  font-family: @Tahoma;
+  font-size: 2.5em;
+  line-height: 1.0;
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  font-family: @Tahoma;
+  font-size: 2.0em;
+  line-height: 1.0;
+  margin: 0 5px 15px 0;
+  padding: 0;
+}
+
+h3 {
+  font-family: @Tahoma;
+  font-size: 1.6em;
+  line-height: 1.0;
+  margin: 0;
+  padding: 30px 5px 20px 0;
+}
+
+/* BODY */
+
 body {
   padding: 0px;
-  font: 14px "Tahoma", Arial, sans-serif;
+  font-size: 14px;
+  font-family: @Tahoma;
   color: @black;
+}
+
+/* TEXT EFFECTS */
+
+.bold-blue {
+  color: @blue;
+  font-weight: bold;
+}
+
+.main-text {
+  font-size: 1.2em;
 }
 
 /* LINKS */
@@ -132,4 +177,46 @@ div.myfooter div a {
 
 div.myfooter div span a {
   margin-top: 0;
+}
+
+/* LISTS */
+
+.square-tricolor-bullets {
+  margin: 10px;
+  font-size: 1em;
+  list-style: square;
+  list-style-image: url('/images/icons/list-marker01.png');
+  vertical-align: top;
+  font-family: @Arial;
+}
+
+.square-tricolor-bullets li {
+  margin: 10px 5px 0 0px;
+  vertical-align: top;
+  padding-left: 10px;
+  line-height: 1;
+}
+
+.square-tricolor-bullets li a, .square-tricolor-bullets li span {
+  vertical-align: top;
+}
+
+.square-hollow-bullets {
+  margin: 10px;
+  font-size: 1em;
+  list-style: square;
+  list-style-image: url('/images/icons/list-marker02.png');
+  vertical-align: top;
+  font-family: @Arial;
+}
+
+.square-hollow-bullets li {
+  margin: 10px 5px 0 0px;
+  vertical-align: top;
+  padding-left: 10px;
+  line-height: 1;
+}
+
+.square-hollow-bullets li a, .square-hollow-bullets li span {
+  vertical-align: top;
 }
