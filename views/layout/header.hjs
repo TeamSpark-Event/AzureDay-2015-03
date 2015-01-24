@@ -3,7 +3,7 @@
     <div class="row" style="height: 125px;">
         <div class="col-md-2">
             <div style="width: 120px; margin: auto; padding-top: 20px; padding-bottom: 3px; padding-left: 3px; padding-right: 3px;">
-                <a href="#" style="width: 120px; margin: auto; display: block;">
+                <a href="/live" style="width: 120px; margin: auto; display: block;">
                     <img style="width: 60px; height: 45px; margin: auto; display: block;" src="images/icons/video-black.png" alt="video">
                     <span style="width: 120px; padding-top: 5px; display: block; text-align: center; font-size: 1.2em;">ТРАНСЛЯЦИЯ
                     </span>
@@ -12,19 +12,19 @@
         </div>
         <div class="col-md-8">
             <div style="display: block; margin-top: 30px;">
-                <a class="mm-agenda" href="#">
+                <a class="mm-agenda" href="/agenda">
                     <span>расписание
                     </span>
                 </a>
-                <a class="mm-speakers" href="#">
+                <a class="mm-speakers" href="/speakers">
                     <span>докладчики
                     </span>
                 </a>
-                <a class="mm-register" href="#">
+                <a class="mm-register" href="/registration">
                     <span style="padding-left: 45px !important;">регистрация
                     </span>
                 </a>
-                <a class="mm-map" href="#">
+                <a class="mm-map" href="/locations">
                     <span style="padding-left: 60px !important;">локации
                     </span>
                 </a>
