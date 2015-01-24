@@ -104,8 +104,8 @@
             </div>
 
             <div class="row">
-                    <div style=" padding: 20px 20px 30px 20px;">
                 <div class="col-xs-4">
+                    <div style="padding: 20px 20px 30px 20px;">
                         <img alt="it community logo" src="/images/it-comm-logo.jpg" style="display: block; width: 259px; height: 67px; margin: auto;">
                     </div>
                 </div>
