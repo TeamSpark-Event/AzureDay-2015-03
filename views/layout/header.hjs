@@ -4,7 +4,7 @@
         <div class="col-xs-2">
             <div style="width: 120px; margin: auto; padding-top: 20px; padding-bottom: 3px; padding-left: 3px; padding-right: 3px;">
                 <a href="/live" style="width: 120px; margin: auto; display: block;">
-                    <img style="width: 60px; height: 45px; margin: auto; display: block;" src="images/icons/video-black.png" alt="video">
+                    <img style="width: 60px; height: 45px; margin: auto; display: block;" src="/images/icons/video-black.png" alt="video">
                     <span style="width: 120px; padding-top: 5px; display: block; text-align: center; font-size: 1.2em;">ТРАНСЛЯЦИЯ
                     </span>
                 </a>
@@ -48,9 +48,9 @@
         <div class="col-xs-12">
             <!-- scroll -->
             <div id="makeMeScrollable">
-                <img src="Smooth-Div-Scroll/images/azure/cloud-one.jpg" alt="get your data into cloud" id="cloud01" />
-                <img src="Smooth-Div-Scroll/images/azure/cloud-two.jpg" alt="cloud" id="cloud02" />
-                <img src="Smooth-Div-Scroll/images/azure/cloud-three.jpg" alt="cloud image" id="cloud03" />
+                <img src="/Smooth-Div-Scroll/images/azure/cloud-one.jpg" alt="get your data into cloud" id="cloud01" />
+                <img src="/Smooth-Div-Scroll/images/azure/cloud-two.jpg" alt="cloud" id="cloud02" />
+                <img src="/Smooth-Div-Scroll/images/azure/cloud-three.jpg" alt="cloud image" id="cloud03" />
             </div>
 
             <div style="position: absolute; width: 150px; height: 150px; display: block; background-image: url('images/backgrounds/blue.png'); background-repeat: repeat; top: 10px; left: 35px;">
@@ -86,7 +86,7 @@
         <div class="col-xs-12">
             <div style="width: 1200px; height: 115px; background-color: #0097FC; color: #fff; position: relative; top: 10px; margin-bottom: 20px;">
                 <div style="display: inline-block; width: 125px; height: 115px;">
-                    <img src="images/icons/cloud-white.png" alt="cloud" style="width: 125px; height: 80px; margin: -30px 20px 0px 40px;">
+                    <img src="/images/icons/cloud-white.png" alt="cloud" style="width: 125px; height: 80px; margin: -30px 20px 0px 40px;">
                 </div>
                 <div style="display: inline-block; width: 940px; margin: 15px 20px 0px 80px; line-height: 1.0;">
                     <h1>
