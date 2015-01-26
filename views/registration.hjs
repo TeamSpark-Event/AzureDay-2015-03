@@ -1,5 +1,7 @@
 {{<layout}}
 	{{$content}}
-		<h1>registration</h1>
+            <div class="container main-text" style="width: 1200px;">
+                <h2>registration</h2>
+            </div>
 	{{/content}}
 {{/layout}}
