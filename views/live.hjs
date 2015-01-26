@@ -1,5 +1,7 @@
 {{<layout}}
 	{{$content}}
-		<h1>live</h1>
+        <div class="container main-text" style="width: 1200px;">
+            <h1>live</h1>
+        </div>
 	{{/content}}
 {{/layout}}
