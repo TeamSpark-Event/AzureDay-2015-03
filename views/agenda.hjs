@@ -29,64 +29,18 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>
-                                    9-00
-                                </td>
-                                <td>
-                                    9-30
-                                </td>
-                                <td>
-                                    Регистрация участников и кофе
-                                </td>
-                                <td>
-                                    30 мин.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    9-30
-                                </td>
-                                <td>
-                                    9-45
-                                </td>
-                                <td>
-                                    Вступительное слово
-                                </td>
-                                <td>
-                                    15 мин.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    9-45
-                                </td>
-                                <td>
-                                    10-15
-                                </td>
-                                <td>
-                                    Designed for everyone, everywhere.
-                                    Bootstrap makes front-end web development faster and easier. It's made for folks of all skill levels, devices of all shapes, and projects of all sizes.
-                                </td>
-                                <td>
-                                    30 мин.
-                                </td>
-                            </tr>
+                            {{#agenda}}
+	                            <tr>
+		                            <td>{{RowKey._}}</td>
+		                            <td>{{EndTime._}}</td>
+		                            <td>{{Title._}}</td>
+		                            <td>{{Duration._}}</td>
+	                            </tr>
+                            {{/agenda}}
                         </tbody>
                     </table>
                 </div>
             </div>
-
-
-
-<!--
-            <ul>
-                {{#agenda}}
-                    <li>{{RowKey._}} - {{Title._}}</li>
-                {{/agenda}}
-            </ul>
-
--->
         </div>
 	{{/content}}
 {{/layout}}
