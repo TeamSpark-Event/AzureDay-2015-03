@@ -103,24 +103,19 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-xs-4">
-                    <div style="padding: 20px 20px 30px 20px;">
-                        <img alt="it community logo" src="/images/it-comm-logo.jpg" style="display: block; width: 259px; height: 67px; margin: auto;">
-                    </div>
-                </div>
-                <div class="col-xs-8">
-                    <p>
-                        Проект «ИТ сообщество Украины» основан в начале 2014 года c целью создания ресурса, на котором ИТ-специалисты разного уровня смогут получить актуальную информацию о различных продуктах, а также особенностях их конфигурирования.
-                    </p>
-                    <p>
-                        На данный момент сообщество поддерживается усилиями 10-ти авторов, которые представляют различные направления информационных технологий. Это дает возможность проекту охватить много направлений, что в конечном итоге будет более интересно читателю.
-                    </p>
-                </div>
-
-            </div>
+            {{#partners}}
+	            <div class="row">
+		            <div class="col-xs-4">
+			            <div style="padding: 20px 20px 30px 20px;">
+                            <a target="_blank" href="{{Url._}}">
+	                            <img alt="{{RowKey._}}" src="{{Logo._}}" style="display: block; width: 259px; height: 67px; margin: auto;">
+                            </a>
+			            </div>
+		            </div>
+		            <div class="col-xs-8">{{Description._}}</div>
+	            </div>
+            {{/partners}}
 
         </div>
-
     {{/content}}
 {{/layout}}
