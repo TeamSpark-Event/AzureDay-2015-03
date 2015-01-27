@@ -9,53 +9,18 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-md-3" style="margin-top: 25px; margin-bottom: 25px;">
-                    <img class="speaker-img" alt="Aleksander Tkachenko" src="/images/portraits/ATkachenko.jpg">
-                </div>
-                <div class="col-md-9 speaker-bio">
-                    <div class="speaker-name">
-                        Александр Ткаченко
-                    </div>
-                    <div>
-                        Получил образование в Национальном Авиационный Университет по направлению «компьютерной инженерии» Еще будучи студентом, работал в компаниях по поддержке информационных систем, основным образом по Microsoft направлению.
-                    </div>
-                    <div>
-                        С 2012 года работаю в компании TechExpert а с 2013 в ее учебном центре «Сетевые Технологии» на позиции инструктора-консультанта по Microsoft направлению. Моими основными направлениями являются Server Infrastructure, Exchange Infrastructure, System Center.
-                    </div>
-                </div>
-            </div>
+            {{#speakers}}
+	            <div class="row">
+		            <div class="col-md-3" style="margin-top: 25px; margin-bottom: 25px;">
+			            <img class="speaker-img" alt="{{RowKey._}}" src="{{Avatar._}}">
+		            </div>
+		            <div class="col-md-9 speaker-bio">
+			            <div class="speaker-name">{{RowKey._}}</div>
+			            <div>{{Bio._}}</div>
+		            </div>
+	            </div>
+            {{/speakers}}
 
-            <div class="row">
-                <div class="col-md-3" style="margin-top: 25px; margin-bottom: 25px;">
-                    <img class="speaker-img" alt="Anton Boyko" src="/images/portraits/ABoyko.jpg">
-                </div>
-                <div class="col-md-9 speaker-bio">
-                    <div class="speaker-name">
-                        Антон Бойко
-                    </div>
-                    <div>
-                        Основатель и главный докладчик Ukrainian Microsoft Azure Community.
-                        Является разработчиком Microsoft Azure со стажем более 3 лет и техническим экспертом по платформе Microsoft Azure.
-                    </div>
-                    <div>
-                        В свободное время активно наполняет свой YouTube канал интересными видео на тему облачных технологий.
-                    </div>
-                    <div>
-                        Интересуется всем, что связано с Microsoft Azure.
-                    </div>
-                </div>
-            </div>
-
-            <!--
-            <table>
-                {{#speakers}}
-                    <tr>
-                        <td>{{RowKey._}}</td>
-                    </tr>
-                {{/speakers}}
-            </table>
-            -->
         </div>
 	{{/content}}
 {{/layout}}
