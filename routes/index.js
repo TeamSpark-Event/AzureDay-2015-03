@@ -14,11 +14,13 @@ function getPartials() {
 }
 
 router.get('/', function(req, res) {
-    res.render('index', {
-        page:
-        {
-        },
-        partials: getPartials()
+    dataStorage.getEntities('AzureDayPartners', '2015-03').then(function(result) {
+        res.render('index', {
+            partners: result,
+            page: {
+            },
+            partials: getPartials()
+        });
     });
 });
 
