@@ -107,7 +107,7 @@
 	            <div class="row">
 		            <div class="col-xs-4">
 			            <div style="padding: 20px 20px 30px 20px;">
-                            <a target="_blank" href="{{Url._}}">
+                            <a target="_blank" href="{{URL._}}">
 	                            <img alt="{{RowKey._}}" src="{{Logo._}}" style="display: block; width: 259px; height: 67px; margin: auto;">
                             </a>
 			            </div>
