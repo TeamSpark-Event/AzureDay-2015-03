@@ -15,6 +15,7 @@
     "hjs": "~0.0.6",
     "less-middleware": "1.0.x",
     "azure-storage": "^0.4.2",
-    "node-promise": "^0.5.11"
+    "node-promise": "^0.5.11",
+    "html-minifier": "^0.6.9"
   }
 }
