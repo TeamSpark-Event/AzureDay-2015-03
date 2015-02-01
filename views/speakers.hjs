@@ -17,6 +17,28 @@
 		            <div class="col-md-9 speaker-bio">
 			            <div class="speaker-name">{{RowKey._}}</div>
 			            <div>{{Bio._}}</div>
+			            <div>
+				            {{#SocialFacebook._}}
+					            <a href="{{SocialFacebook._}}" target="_blank" alt="facebook" style="display: inline-block; width: 40px; height: 40px; background-image: url('images/icons/fb40.png'); margin: 0 15px 0 0;">
+						            &nbsp;
+					            </a>
+				            {{/SocialFacebook._}}
+				            {{#SocialTwitter._}}
+					            <a href="{{SocialTwitter._}}" target="_blank" alt="twitter" style="display: inline-block; width: 40px; height: 40px; background-image: url('images/icons/tw40.png'); margin: 0 15px 0 0;">
+						            &nbsp;
+					            </a>
+				            {{/SocialTwitter._}}
+				            {{#SocialGooglePlus._}}
+					            <a href="{{SocialGooglePlus._}}" target="_blank" alt="twitter" style="display: inline-block; width: 40px; height: 40px; background-image: url('images/icons/gpl40.png'); margin: 0 15px 0 0;">
+						            &nbsp;
+					            </a>
+				            {{/SocialGooglePlus._}}
+				            {{#SocialLinkedIn._}}
+					            <a href="{{SocialLinkedIn._}}" target="_blank" alt="twitter" style="display: inline-block; width: 40px; height: 40px; background-image: url('images/icons/lin40.png'); margin: 0 15px 0 0;">
+						            &nbsp;
+					            </a>
+				            {{/SocialLinkedIn._}}
+			            </div>
 		            </div>
 	            </div>
             {{/speakers}}
