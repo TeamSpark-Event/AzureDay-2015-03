@@ -13,22 +13,17 @@
         <div class="col-xs-8">
             <div style="display: block; margin-top: 30px;">
                 <a class="mm-agenda" href="/agenda">
-                    <span>расписание
-                    </span>
+                    <span>расписание</span>
                 </a>
                 <a class="mm-speakers" href="/speakers">
-                    <span>докладчики
-                    </span>
+                    <span>докладчики</span>
                 </a>
                 <a class="mm-register" href="/registration">
-                    <span style="padding-left: 45px !important;">регистрация
-                    </span>
+                    <span style="padding-left: 45px !important;">регистрация</span>
                 </a>
                 <a class="mm-map" href="/locations">
-                    <span style="padding-left: 60px !important;">локации
-                    </span>
+                    <span style="padding-left: 60px !important;">локации</span>
                 </a>
-
             </div>
         </div>
         <div class="col-xs-2">
