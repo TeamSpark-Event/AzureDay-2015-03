@@ -26,14 +26,20 @@ function getMinifiedHtml(html){
 }
 
 router.get('/', function(req, res) {
-    dataStorage.getEntities('AzureDayPartners', '2015-03').then(function(result) {
-        res.render('index', {
-            partners: result,
-            page: {
-            },
-            partials: getPartials()
-        }, function(err, html) {
-            res.send(getMinifiedHtml(html));
+    dataStorage.getEntities('AzureDayMain', '2015-03').then(function(result) {
+        var pages = result.filter(function(item) { return item.RowKey._ === 'Social' });
+        pages = pages.length === 1 ? pages[0] : { };
+
+        dataStorage.getEntities('AzureDayPartners', '2015-03').then(function(result) {
+            var partners = result;
+
+            res.render('index', {
+                partners: partners,
+                pages: pages,
+                partials: getPartials()
+            }, function(err, html) {
+                res.send(getMinifiedHtml(html));
+            });
         });
     });
 });
