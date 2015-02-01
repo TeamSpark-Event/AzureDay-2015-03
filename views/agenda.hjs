@@ -14,29 +14,32 @@
                     <table class="table table-striped agenda-table" style="width: 1200px; margin-top: 25px;">
                         <thead>
                             <tr>
-                                <th>
-                                    Начало
-                                </th>
-                                <th>
-                                    Завершение
-                                </th>
-                                <th style="min-width: 450px;">
-                                    Активность
-                                </th>
-                                <th>
-                                    Длительность
-                                </th>
+                                <th>Начало</th>
+                                <!--<th>Завершение</th>-->
+                                <th style="min-width: 450px;">Активность</th>
+                                <th>Длительность</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {{#agenda}}
-	                            <tr>
-		                            <td>{{RowKey._}}</td>
-		                            <td>{{EndTime._}}</td>
-		                            <td>{{Title._}}</td>
-		                            <td>{{Duration._}}</td>
-	                            </tr>
-                            {{/agenda}}
+							{{#agendaTopics}}
+								<tr>
+									<td>{{ agenda.RowKey._ }}</td>
+									<!--<td>{{ agenda.EndTime._ }}</td>-->
+									<td>
+										{{#topic}}
+											{{ topic.Speaker._ }}
+											<br/>
+											{{ topic.Title._ }}
+											<br/>
+											{{ topic.Description._ }}
+										{{/topic}}
+										{{^topic}}
+											{{ agenda.Title._ }}
+										{{/topic}}
+									</td>
+									<td>{{ agenda.Duration._ }}</td>
+								</tr>
+							{{/agendaTopics}}
                         </tbody>
                     </table>
                 </div>
