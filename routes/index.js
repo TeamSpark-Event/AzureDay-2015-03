@@ -43,15 +43,44 @@ router.get('/agenda', function(req, res) {
         res.render('agenda', {
             agenda: result,
             partials: getPartials()
+
+router.get('/registration', function(req, res) {
+    dataStorage.getEntities('AzureDayLocations', '2015-03').then(function(result) {
+        res.render('registration', {
+            partials: getPartials(),
+            locations: result,
+            isShowRegistrationForm: true
         }, function(err, html) {
             res.send(getMinifiedHtml(html));
         });
     });
 });
 
-router.get('/registration', function(req, res) {
+router.post('/registration', function(req, res){
+    function isEmpty(val) {
+        return typeof(val) === 'undefined'
+            || val === null
+            || val.length === 0;
+    }
+
+    if (isEmpty(req.body.tbName) || isEmpty(req.body.tbEmail) || isEmpty(req.body.ddlLocation)) {
+        dataStorage.getEntities('AzureDayLocations', '2015-03').then(function(result) {
+            res.render('registration', {
+                partials: getPartials(),
+                isShowRegistrationForm: true,
+                errorMessage: 'Нужно заполнить все поля формы.',
+                locations: result
+            }, function(err, html) {
+                res.send(getMinifiedHtml(html));
+            });
+        });
+
+        return;
+    }
+
     res.render('registration', {
-        partials: getPartials()
+        partials: getPartials(),
+        isShowRegistrationForm: false
     }, function(err, html) {
         res.send(getMinifiedHtml(html));
     });
