@@ -125,10 +125,13 @@ router.get('/speakers', function(req, res) {
 });
 
 router.get('/locations', function(req, res) {
-    res.render('locations', {
-        partials: getPartials()
-    }, function(err, html) {
-        res.send(getMinifiedHtml(html));
+    dataStorage.getEntities('AzureDayLocations', '2015-03').then(function(result) {
+        res.render('locations', {
+            partials: getPartials(),
+            locations: result
+        }, function(err, html) {
+            res.send(getMinifiedHtml(html));
+        });
     });
 });
 
