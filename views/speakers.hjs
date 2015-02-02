@@ -9,6 +9,14 @@
                 </div>
             </div>
 
+            <div class="row">
+                <div class="col-xs-12">
+                    <p>
+                        Немного о наших докладчиках.
+                    </p>
+                </div>
+            </div>
+
             {{#speakers}}
 	            <div class="row">
 		            <div class="col-md-3" style="margin-top: 25px; margin-bottom: 25px;">
