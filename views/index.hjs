@@ -10,21 +10,28 @@
                 </div>
                 <div class="col-xs-3">
                     <div style="float: right;">
-                        <a href="#" alt="facebook" style="display: inline-block; width: 40px; height: 40px; background-image: url('images/icons/fb40.png'); margin: 0 15px 0 0;">
-                            &nbsp;
-                        </a>
-                        <a href="#" alt="twitter" style="display: inline-block; width: 40px; height: 40px; background-image: url('images/icons/tw40.png'); margin: 0 15px 0 0;">
-                            &nbsp;
-                        </a>
-                        <a href="#" alt="google plus" style="display: inline-block; width: 40px; height: 40px; background-image: url('images/icons/gpl40.png'); margin: 0 15px 0 0;">
-                            &nbsp;
-                        </a>
-                        <a href="#" alt="linked in" style="display: inline-block; width: 40px; height: 40px; background-image: url('images/icons/lin40.png'); margin: 0 15px 0 0;">
-                            &nbsp;
-                        </a>
+                        {{#pages.Facebook._}}
+	                        <a target="_blank" href="{{ pages.Facebook._ }}" alt="facebook" style="display: inline-block; width: 40px; height: 40px; background-image: url('images/icons/fb40.png'); margin: 0 15px 0 0;">
+		                        &nbsp;
+	                        </a>
+                        {{/pages.Facebook._}}
+                        {{#pages.Twitter._}}
+	                        <a target="_blank" href="{{ pages.Twitter._ }}" alt="twitter" style="display: inline-block; width: 40px; height: 40px; background-image: url('images/icons/tw40.png'); margin: 0 15px 0 0;">
+		                        &nbsp;
+	                        </a>
+                        {{/pages.Twitter._}}
+                        {{#pages.Google._}}
+	                        <a target="_blank" href="{{ pages.Google._ }}" alt="google plus" style="display: inline-block; width: 40px; height: 40px; background-image: url('images/icons/gpl40.png'); margin: 0 15px 0 0;">
+		                        &nbsp;
+	                        </a>
+                        {{/pages.Google._}}
+                        {{#pages.LinkedIn._}}
+	                        <a href="#" alt="linked in" style="display: inline-block; width: 40px; height: 40px; background-image: url('images/icons/lin40.png'); margin: 0 15px 0 0;">
+		                        &nbsp;
+	                        </a>
+                        {{/pages.LinkedIn._}}
                     </div>
                 </div>
-
             </div>
 
             <div class="row">
@@ -35,7 +42,7 @@
                         </li>
                         <li>
                             Конференция однодневная, проходит с 9-30 до 18-00, <br />
-                            предусмотрен перерыв на обед продолжительностью 1 час, а также кофе-брейки между слотами докладов.
+                            предусмотрен перерыв в середине дня продолжительностью 1 час, а также кофе-брейки между слотами докладов.
                         </li>
                         <li>
                             Вход по предварительной <a href="/registration" class="bold-blue">регистрации</a>.
