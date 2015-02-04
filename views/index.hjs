@@ -81,7 +81,7 @@
                 <div  class="col-xs-4">
                     <div>
                         <!-- twitter feed -->
-                        <a class="twitter-timeline" href="https://twitter.com/hashtag/Azure" data-widget-id="555059599842500608">#Azure Tweets</a>
+                        <a class="twitter-timeline" href="https://twitter.com/hashtag/AzureDay" data-widget-id="562928648731496449">#AzureDay Tweets</a>
                         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
                     </div>
                     <div>
@@ -102,6 +102,7 @@
                             <img src="/images/icons/partners-white.png" alt="cloud" style="width: 115px; height: 85px; margin: 15px 20px 0px 40px;">
                         </div>
                         <div style="display: inline-block; width: 940px; margin: 15px 20px 0px 80px; line-height: 1.0;">
+                            <a name="partners"></a>
                             <h1>
                                 Партнеры <span style="font-weight: bold;">AzureDAY 2015</span>
                             </h1>

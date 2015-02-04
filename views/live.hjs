@@ -1,7 +1,27 @@
 {{<layout}}
 	{{$content}}
         <div class="container main-text" style="width: 1200px;">
-            <h1>live</h1>
+            <div class="row">
+                <div class="col-xs-12">
+                    <h2>
+                        Интернет-трансляция <span class="bold-blue" style="font-size: 1.3em;">AzureDAY 2015</span>
+                    </h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <p>
+                        В день проведения конференции на этой странице вы сможете получить ссылку на плейер, с помощью которого можно будет подключиться к интернет-трансляции <span class="bold-blue" style="font-size: 1.1em;">AzureDAY 2015</span>.
+                    </p>
+                    <p>
+                        Подключиться к трансляции смогут все желающие, ограничения на количество мест нет.
+                    </p>
+
+                </div>
+            </div>
+
+
         </div>
 	{{/content}}
 {{/layout}}
