@@ -11,32 +11,49 @@
 
             <div class="row">
                 <div class="col-xs-12">
+                    <p>
+                        Первая мини-конференция украинского Azure community <span class="bold-blue" style="font-size: 1.1em;">AzureDAY 2015</span> будет проводиться один полный день с 9-30 до 18-00.
+                    </p>
+                    <p>
+                        Между докладами предусмотрены перерывы по 10мин. и один перерыв на обед в 60мин. Пообедать участники конференции смогут в близлежащих кафе/ресторанах к локациям в каждом городе, организаторы на местах помогут найти подходящее место.
+                    </p>
+                    <p>
+                        Всех участников просим прийти на 9-30 или чуть раньше, чтобы успеть зарегистрироваться.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
                     <table class="table table-striped agenda-table" style="width: 1200px; margin-top: 25px;">
                         <thead>
                             <tr>
-                                <th>
-                                    Начало
-                                </th>
-                                <th>
-                                    Завершение
-                                </th>
-                                <th style="min-width: 450px;">
-                                    Активность
-                                </th>
-                                <th>
-                                    Длительность
-                                </th>
+                                <th>Начало</th>
+                                <!--<th>Завершение</th>-->
+                                <th style="min-width: 450px;">Активность</th>
+                                <th>Длительность</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {{#agenda}}
-	                            <tr>
-		                            <td>{{RowKey._}}</td>
-		                            <td>{{EndTime._}}</td>
-		                            <td>{{Title._}}</td>
-		                            <td>{{Duration._}}</td>
-	                            </tr>
-                            {{/agenda}}
+							{{#agendaTopics}}
+								<tr>
+									<td>{{ agenda.RowKey._ }}</td>
+									<!--<td>{{ agenda.EndTime._ }}</td>-->
+									<td>
+										{{#topic}}
+											<span style="font-weight: bold; color: #666;">{{ topic.Speaker._ }}</span>
+											<br/>
+											{{ topic.Title._ }}
+											<br/>
+											{{ topic.Description._ }}
+										{{/topic}}
+										{{^topic}}
+											{{ agenda.Title._ }}
+										{{/topic}}
+									</td>
+									<td>{{ agenda.Duration._ }}</td>
+								</tr>
+							{{/agendaTopics}}
                         </tbody>
                     </table>
                 </div>

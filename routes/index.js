@@ -26,32 +26,94 @@ function getMinifiedHtml(html){
 }
 
 router.get('/', function(req, res) {
-    dataStorage.getEntities('AzureDayPartners', '2015-03').then(function(result) {
-        res.render('index', {
-            partners: result,
-            page: {
-            },
-            partials: getPartials()
-        }, function(err, html) {
-            res.send(getMinifiedHtml(html));
+    dataStorage.getEntities('AzureDayMain', '2015-03').then(function(result) {
+        var pages = result.filter(function(item) { return item.RowKey._ === 'Social' });
+        pages = pages.length === 1 ? pages[0] : { };
+
+        dataStorage.getEntities('AzureDayPartners', '2015-03').then(function(result) {
+            var partners = result;
+
+            res.render('index', {
+                partners: partners,
+                pages: pages,
+                partials: getPartials()
+            }, function(err, html) {
+                res.send(getMinifiedHtml(html));
+            });
         });
     });
 });
 
 router.get('/agenda', function(req, res) {
     dataStorage.getEntities('AzureDayAgenda', '2015-03').then(function(result) {
-        res.render('agenda', {
-            agenda: result,
-            partials: getPartials()
+        var agenda = result;
+
+        dataStorage.getEntities('AzureDayTopics', '2015-03').then(function(result) {
+            var topics = result;
+
+            var agendaTopics = [];
+
+            for(var i = 0; i < agenda.length; i++) {
+                var obj = {
+                    agenda: agenda[i]
+                };
+
+                var topic = topics.filter(function(item) { return item.RowKey._ === agenda[i].RowKey._ });
+
+                if (topic.length === 1) {
+                    obj.topic = topic[0];
+                }
+
+                agendaTopics.push(obj);
+            }
+
+            res.render('agenda', {
+                agendaTopics: agendaTopics,
+                partials: getPartials()
+            }, function(err, html) {
+                res.send(getMinifiedHtml(html));
+            });
+        });
+    });
+});
+
+router.get('/registration', function(req, res) {
+    dataStorage.getEntities('AzureDayLocations', '2015-03').then(function(result) {
+        res.render('registration', {
+            partials: getPartials(),
+            locations: result,
+            isShowRegistrationForm: true
         }, function(err, html) {
             res.send(getMinifiedHtml(html));
         });
     });
 });
 
-router.get('/registration', function(req, res) {
+router.post('/registration', function(req, res){
+    function isEmpty(val) {
+        return typeof(val) === 'undefined'
+            || val === null
+            || val.length === 0;
+    }
+
+    if (isEmpty(req.body.tbName) || isEmpty(req.body.tbEmail) || isEmpty(req.body.ddlLocation)) {
+        dataStorage.getEntities('AzureDayLocations', '2015-03').then(function(result) {
+            res.render('registration', {
+                partials: getPartials(),
+                isShowRegistrationForm: true,
+                errorMessage: 'Нужно заполнить все поля формы.',
+                locations: result
+            }, function(err, html) {
+                res.send(getMinifiedHtml(html));
+            });
+        });
+
+        return;
+    }
+
     res.render('registration', {
-        partials: getPartials()
+        partials: getPartials(),
+        isShowRegistrationForm: false
     }, function(err, html) {
         res.send(getMinifiedHtml(html));
     });
@@ -69,10 +131,13 @@ router.get('/speakers', function(req, res) {
 });
 
 router.get('/locations', function(req, res) {
-    res.render('locations', {
-        partials: getPartials()
-    }, function(err, html) {
-        res.send(getMinifiedHtml(html));
+    dataStorage.getEntities('AzureDayLocations', '2015-03').then(function(result) {
+        res.render('locations', {
+            partials: getPartials(),
+            locations: result
+        }, function(err, html) {
+            res.send(getMinifiedHtml(html));
+        });
     });
 });
 

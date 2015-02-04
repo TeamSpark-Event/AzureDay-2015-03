@@ -13,6 +13,7 @@ service.init = function() {
 	tableService.createTableIfNotExists('AzureDaySpeakers', function() {});
 	tableService.createTableIfNotExists('AzureDayLocations', function() {});
 	tableService.createTableIfNotExists('AzureDayPartners', function() {});
+	tableService.createTableIfNotExists('AzureDayTopics', function() {});
 };
 
 service.getEntities = function(tableName, partitionKey, rowKey) {
