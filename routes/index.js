@@ -111,11 +111,33 @@ router.post('/registration', function(req, res){
         return;
     }
 
-    res.render('registration', {
-        partials: getPartials(),
-        isShowRegistrationForm: false
-    }, function(err, html) {
-        res.send(getMinifiedHtml(html));
+    var entity = {
+        PartitionKey: { '_' : '2015-03' },
+        RowKey: { '_' : req.body.tbEmail },
+        FullName: { '_' : req.body.tbName },
+        Location: { '_' : req.body.ddlLocation }
+    };
+
+    dataStorage.insertEntity('AzureDayRegistration', entity).then(function(result){
+        if (result.isError) {
+            dataStorage.getEntities('AzureDayLocations', '2015-03').then(function(result) {
+                res.render('registration', {
+                    partials: getPartials(),
+                    isShowRegistrationForm: true,
+                    errorMessage: 'Простите, произошла ошибка. Пожалуйста, попробуйте пройти регистрацию повторно',
+                    locations: result
+                }, function(err, html) {
+                    res.send(getMinifiedHtml(html));
+                });
+            });
+        } else {
+            res.render('registration', {
+                partials: getPartials(),
+                isShowRegistrationForm: false
+            }, function(err, html) {
+                res.send(getMinifiedHtml(html));
+            });
+        }
     });
 });
 
