@@ -26,6 +26,7 @@
                 </div>
             </div>
 
+            <!--
             <div class="row">
                 <div class="col-xs-12" style="margin-top: 25px;">
                     <h2>Список доступных локаций появится в ближайшее время
@@ -35,8 +36,8 @@
                     </p>
                 </div>
             </div>
+            -->
 
-            <!--
             <div class="row">
                 <div class="col-xs-12">
                     <table class="table table-striped agenda-table" style="width: 1200px; margin-top: 25px;">
@@ -73,7 +74,6 @@
                     </table>
                 </div>
             </div>
-            -->
 
         </div>
 	{{/content}}
