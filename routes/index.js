@@ -124,7 +124,7 @@ router.post('/registration', function(req, res){
                 res.render('registration', {
                     partials: getPartials(),
                     isShowRegistrationForm: true,
-                    errorMessage: 'Простите, произошла ошибка. Пожалуйста, попробуйте пройти регистрацию повторно',
+                    errorMessage: 'Простите, произошла ошибка. Пожалуйста, попробуйте пройти регистрацию повторно.',
                     locations: result
                 }, function(err, html) {
                     res.send(getMinifiedHtml(html));
