@@ -36,4 +36,18 @@ service.getEntities = function(tableName, partitionKey, rowKey) {
 	return promise;
 };
 
+service.insertEntity = function(tableName, entity) {
+	var promise = new Promise();
+
+	tableService.insertEntity(tableName, entity, function(error, result, response){
+		if (error) {
+			promise.resolve({'isError' : true });
+		} else {
+			promise.resolve({'isError' : false });
+		}
+	});
+
+	return promise;
+};
+
 module.exports = service;
