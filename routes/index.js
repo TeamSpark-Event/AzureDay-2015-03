@@ -120,11 +120,13 @@ router.post('/registration', function(req, res){
 
     dataStorage.insertEntity('AzureDayRegistration', entity).then(function(result){
         if (result.isError) {
+            var errorMessage = result.errorMessage || 'Простите, произошла ошибка. Пожалуйста, попробуйте пройти регистрацию повторно.';
+
             dataStorage.getEntities('AzureDayLocations', '2015-03').then(function(result) {
                 res.render('registration', {
                     partials: getPartials(),
                     isShowRegistrationForm: true,
-                    errorMessage: 'Простите, произошла ошибка. Пожалуйста, попробуйте пройти регистрацию повторно',
+                    errorMessage: errorMessage,
                     locations: result
                 }, function(err, html) {
                     res.send(getMinifiedHtml(html));

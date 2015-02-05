@@ -40,8 +40,17 @@ service.insertEntity = function(tableName, entity) {
 	var promise = new Promise();
 
 	tableService.insertEntity(tableName, entity, function(error, result, response){
+		console.log(result);
+		console.log(response);
+
 		if (error) {
-			promise.resolve({'isError' : true });
+			var message = null;
+
+			if (response.body['odata.error'].code === 'EntityAlreadyExists') {
+				message = 'Указаный вами EMail уже зарегистрирован на конференцию.';
+			}
+
+			promise.resolve({'isError' : true, errorMessage: message });
 		} else {
 			promise.resolve({'isError' : false });
 		}
