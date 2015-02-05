@@ -12,6 +12,7 @@
                     </div>
                 </div>
 
+                <!--
                 <div class="row">
                     <div class="col-xs-12" style="margin-top: 25px;">
                         <h2>Регистрация участников будет открыта в ближайшее время
@@ -21,8 +22,8 @@
                         </p>
                     </div>
                 </div>
+                -->
 
-                <!--
                 <div class="row">
                     <div class="col-xs-12">
                         <h2>Регистрация участника <span class="bold-blue" style="font-size: 1.3em;">AzureDAY 2015</span></h2>
@@ -80,7 +81,6 @@
                         {{/isShowRegistrationForm}}
                     </div>
                 </div>
-                -->
 
             </div>
 	{{/content}}
