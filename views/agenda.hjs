@@ -44,14 +44,17 @@
 									<!--<td>{{ agenda.EndTime._ }}</td>-->
 									<td>
 										{{#topic}}
-											<span style="font-weight: bold; color: #666;">{{ topic.Speaker._ }}</span>
-											<br/>
-											{{ topic.Title._ }}
-											<br/>
-											{{ topic.Description._ }}
+											<p style="font-weight: bold; color: #666;">
+                                                {{ topic.Speaker._ }} / {{ topic.Title._ }}
+                                            </p>
+											<p style="text-align: justify;">
+                                                {{ topic.Description._ }}
+                                            </p>
 										{{/topic}}
 										{{^topic}}
-											{{ agenda.Title._ }}
+											<p>
+                                                {{ agenda.Title._ }}
+                                            </p>
 										{{/topic}}
 									</td>
 									<td>{{ agenda.Duration._ }}</td>
