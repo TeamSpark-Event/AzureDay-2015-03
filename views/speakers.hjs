@@ -46,6 +46,11 @@
 						            &nbsp;
 					            </a>
 				            {{/SocialLinkedIn._}}
+				            {{#SocialWeb._}}
+					            <a href="{{SocialWeb._}}" target="_blank" alt="twitter" style="display: inline-block; width: 40px; height: 40px; background-image: url('images/icons/web40.png'); margin: 0 15px 0 0;">
+						            &nbsp;
+					            </a>
+				            {{/SocialWeb._}}
 			            </div>
 		            </div>
 	            </div>
