@@ -64,8 +64,10 @@
                                     <td>{{ Title._ }}</td>
 	                                <td>
                                         {{ Address._ }}
-                                        <br/>
-                                        <a target="_blank" href="{{ MapUrl._ }}">карта проезда</a>
+                                        {{# MapUrl._ }}
+                                            <br/>
+                                            <a target="_blank" href="{{ MapUrl._ }}">карта проезда</a>
+                                        {{/ MapUrl._ }}
                                     </td>
 	                                <td>{{ Description._ }}</td>
                                 </tr>

@@ -52,7 +52,7 @@
                                         <select id="ddlLocation" name="ddlLocation" class="form-control">
                                             <option></option>
                                             {{#locations}}
-                                                <option>{{ RowKey._ }} {{ Address._ }} ({{ Title._ }})</option>
+                                                <option>{{ RowKey._ }} {{ Address._ }} {{# Title._ }}({{ Title._ }}){{/ Title._ }}</option>
                                             {{/locations}}
                                         </select>
                                     </div>
