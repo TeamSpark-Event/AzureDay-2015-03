@@ -1,4 +1,5 @@
 var path = require('path');
+var uuid = require('uuid');
 
 var minify = require('html-minifier').minify;
 
@@ -133,11 +134,21 @@ router.post('/registration', function(req, res){
                 });
             });
         } else {
-            res.render('registration', {
-                partials: getPartials(),
-                isShowRegistrationForm: false
-            }, function(err, html) {
-                res.send(getMinifiedHtml(html));
+            var entityFeedback = {
+                PartitionKey: { '_' : '2015-03' },
+                RowKey: { '_' : uuid.v4() },
+                EMail: { '_' : req.body.tbEmail },
+                FullName: { '_' : req.body.tbName },
+                Location: { '_' : req.body.ddlLocation }
+            };
+
+            dataStorage.insertEntity('AzureDayFeedback', entityFeedback).then(function(){
+                res.render('registration', {
+                    partials: getPartials(),
+                    isShowRegistrationForm: false
+                }, function(err, html) {
+                    res.send(getMinifiedHtml(html));
+                });
             });
         }
     });
