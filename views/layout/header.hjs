@@ -48,7 +48,7 @@
                 <img src="/Smooth-Div-Scroll/images/azure/cloud-three.jpg" alt="cloud image" id="cloud03" />
             </div>
 
-            <div style="position: absolute; width: 150px; height: 150px; display: block; background-image: url('images/backgrounds/blue.png'); background-repeat: repeat; top: 10px; left: 35px;">
+            <div style="position: absolute; width: 150px; height: 150px; display: block; background-image: url('/images/backgrounds/blue.png'); background-repeat: repeat; top: 10px; left: 35px;">
                 <div style="font-family: Tahoma; font-size: 1.8em; line-height: 1.05; text-align: left; font-weight: bold; color: #fff; padding: 25px 5px 25px 10px;">
                     AzureDAY <br />
                     2015
@@ -59,7 +59,7 @@
 
             </div>
 
-            <div style="position: absolute; width: 150px; height: 150px; display: block; background-image: url('images/backgrounds/yellow.png'); background-repeat: repeat; top: 170px; left: 35px;">
+            <div style="position: absolute; width: 150px; height: 150px; display: block; background-image: url('/images/backgrounds/yellow.png'); background-repeat: repeat; top: 170px; left: 35px;">
                 <div style="font-family: Tahoma; font-size: 1.8em; line-height: 1.05; text-align: left; font-weight: bold; color: #fff; padding: 25px 5px 25px 10px;">
                     AzureDAY <br />
                     2015

@@ -17,6 +17,7 @@
     "azure-storage": "^0.4.2",
     "node-promise": "^0.5.11",
     "html-minifier": "^0.6.9",
-    "nconf": "^0.7.1"
+    "nconf": "^0.7.1",
+    "uuid": "^2.0.1"
   }
 }
