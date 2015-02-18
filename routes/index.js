@@ -6,6 +6,8 @@ var minify = require('html-minifier').minify;
 var express = require('express');
 var router = express.Router();
 
+var nodePromise = require("node-promise");
+
 var dataStorage = require(path.join(__dirname, '../services/DataStorage'));
 
 function getPartials() {
@@ -181,6 +183,57 @@ router.get('/live', function(req, res) {
         partials: getPartials()
     }, function(err, html) {
         res.send(getMinifiedHtml(html));
+    });
+});
+
+router.get('/feedback/:id', function(req, res) {
+    var id = req.params.id;
+
+    nodePromise.all([
+        dataStorage.getEntities('AzureDayTopics', '2015-03')
+    ]).then(function(results) {
+        var topics = results[0];
+
+        for(var i = 0; i < topics.length; i++) {
+            topics[i].index = i;
+        }
+
+        res.render('feedback', {
+            partials: getPartials(),
+            isShowFeedbackForm: true,
+            errorMessage: null,
+            name: "Boyko Anton",
+            email: "boyko.ant@live.com",
+            location: "online",
+            topics: topics,
+            id: id
+        }, function(err, html) {
+            res.send(getMinifiedHtml(html));
+        });
+    });
+});
+
+router.post('/feedback', function(req, res) {
+    var entity = {
+        PartitionKey: { '_' : '2015-03' },
+        RowKey: { '_' : req.body.hidId },
+        EMail: { '_' : req.body.tbEmail },
+        FullName: { '_' : req.body.tbName },
+        Location: { '_' : req.body.tbLocation }
+    };
+
+    for (var i = 0; i < 10; i++) {
+        entity["speaker" + i] = { '_' : req.body["speaker" + i] };
+    }
+
+    dataStorage.updateEntity('AzureDayFeedback', entity).then(function(){
+        res.render('feedback', {
+            partials: getPartials(),
+            isShowFeedbackForm: false,
+            errorMessage: null
+        }, function(err, html) {
+            res.send(getMinifiedHtml(html));
+        });
     });
 });
 

@@ -59,4 +59,24 @@ service.insertEntity = function(tableName, entity) {
 	return promise;
 };
 
+service.updateEntity = function(tableName, entity) {
+	var promise = new Promise();
+
+	tableService.updateEntity(tableName, entity, function(error, result, response){
+		if (error) {
+			var message = null;
+
+			if (response.body['odata.error'].code === 'EntityAlreadyExists') {
+				message = 'Указаный вами EMail уже заполнил форму обратной связи.';
+			}
+
+			promise.resolve({'isError' : true, errorMessage: message });
+		} else {
+			promise.resolve({'isError' : false });
+		}
+	});
+
+	return promise;
+};
+
 module.exports = service;
