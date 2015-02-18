@@ -43,9 +43,6 @@ service.insertEntity = function(tableName, entity) {
 	var promise = new Promise();
 
 	tableService.insertEntity(tableName, entity, function(error, result, response){
-		console.log(result);
-		console.log(response);
-
 		if (error) {
 			var message = null;
 
