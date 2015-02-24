@@ -29,53 +29,55 @@ function getMinifiedHtml(html){
 }
 
 router.get('/', function(req, res) {
-    dataStorage.getEntities('AzureDayMain', '2015-03').then(function(result) {
-        var pages = result.filter(function(item) { return item.RowKey._ === 'Social' });
+    nodePromise.all([
+        dataStorage.getEntities('AzureDayMain', '2015-03'),
+        dataStorage.getEntities('AzureDayPartners', '2015-03')
+    ]).then(function(results) {
+        var pages = results[0].filter(function(item) { return item.RowKey._ === 'Social' });
         pages = pages.length === 1 ? pages[0] : { };
 
-        dataStorage.getEntities('AzureDayPartners', '2015-03').then(function(result) {
-            var partners = result;
+        var partners = results[1];
 
-            res.render('index', {
-                partners: partners,
-                pages: pages,
-                partials: getPartials()
-            }, function(err, html) {
-                res.send(getMinifiedHtml(html));
-            });
+        res.render('index', {
+            partners: partners,
+            pages: pages,
+            partials: getPartials()
+        }, function(err, html) {
+            res.send(getMinifiedHtml(html));
         });
     });
 });
 
 router.get('/agenda', function(req, res) {
-    dataStorage.getEntities('AzureDayAgenda', '2015-03').then(function(result) {
-        var agenda = result;
+    nodePromise.all([
+        dataStorage.getEntities('AzureDayAgenda', '2015-03'),
+        dataStorage.getEntities('AzureDayTopics', '2015-03')
+    ]).then(function(results) {
+        var agenda = results[0];
 
-        dataStorage.getEntities('AzureDayTopics', '2015-03').then(function(result) {
-            var topics = result;
+        var topics = results[1];
 
-            var agendaTopics = [];
+        var agendaTopics = [];
 
-            for(var i = 0; i < agenda.length; i++) {
-                var obj = {
-                    agenda: agenda[i]
-                };
+        for(var i = 0; i < agenda.length; i++) {
+            var obj = {
+                agenda: agenda[i]
+            };
 
-                var topic = topics.filter(function(item) { return item.RowKey._ === agenda[i].RowKey._ });
+            var topic = topics.filter(function(item) { return item.RowKey._ === agenda[i].RowKey._ });
 
-                if (topic.length === 1) {
-                    obj.topic = topic[0];
-                }
-
-                agendaTopics.push(obj);
+            if (topic.length === 1) {
+                obj.topic = topic[0];
             }
 
-            res.render('agenda', {
-                agendaTopics: agendaTopics,
-                partials: getPartials()
-            }, function(err, html) {
-                res.send(getMinifiedHtml(html));
-            });
+            agendaTopics.push(obj);
+        }
+
+        res.render('agenda', {
+            agendaTopics: agendaTopics,
+            partials: getPartials()
+        }, function(err, html) {
+            res.send(getMinifiedHtml(html));
         });
     });
 });
@@ -234,6 +236,40 @@ router.post('/feedback', function(req, res) {
         }, function(err, html) {
             res.send(getMinifiedHtml(html));
         });
+    });
+});
+
+router.get('/attendees/:id', function(req, res) {
+    var id = req.params.id;
+
+    dataStorage.getEntities('AzureDayLocations', '2015-03', null, { UID : id }).then(function(result) {
+        if (result.length === 0) {
+            res.render('attendees', {
+                partials: getPartials(),
+                locationName: '',
+                attendeesCount: 0,
+                attendees: []
+            }, function(err, html) {
+                res.send(getMinifiedHtml(html));
+            });
+            return;
+        }
+
+        var locationKey = result[0].RowKey._ + ' ' + result[0].Address._;
+        if (typeof(result[0].Title) !== 'undefined') {
+            locationKey += ' (' + result[0].Title._ + ')';
+        }
+
+        dataStorage.getEntities('AzureDayRegistration', '2015-03', null, { Location : locationKey }).then(function(result) {
+            res.render('attendees', {
+                partials: getPartials(),
+                locationName: locationKey,
+                attendeesCount: result.length,
+                attendees: result
+            }, function(err, html) {
+                res.send(getMinifiedHtml(html));
+            });
+        })
     });
 });
 
