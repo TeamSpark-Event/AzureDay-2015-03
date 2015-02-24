@@ -19,18 +19,37 @@ service.init = function() {
 	tableService.createTableIfNotExists('AzureDayFeedback', function() {});
 };
 
-service.getEntities = function(tableName, partitionKey, rowKey) {
+service.getEntities = function(tableName, partitionKey, rowKey, customFilter) {
+	var combinedFilterProperties = customFilter || {};
+
+	if (!!partitionKey) {
+		combinedFilterProperties.PartitionKey = partitionKey;
+	}
+
+	if (!!rowKey) {
+		combinedFilterProperties.RowKey = rowKey;
+	}
+
+	var query;
+
+	if (combinedFilterProperties.length === 0) {
+		query = new azure.TableQuery();
+	} else {
+		var combinedFilterQuery = null;
+
+		for (var property in combinedFilterProperties) {
+			var filter = azure.TableQuery.stringFilter(property, azure.TableUtilities.QueryComparisons.EQUAL, combinedFilterProperties[property]);
+			if (combinedFilterQuery === null) {
+				combinedFilterQuery = filter;
+			} else {
+				combinedFilterQuery = azure.TableQuery.combineFilters(combinedFilterQuery, azure.TableUtilities.TableOperators.AND, filter);
+			}
+		}
+
+		query = new azure.TableQuery().where(combinedFilterQuery);
+	}
+
 	var promise = new Promise();
-
-	var query = new azure.TableQuery();
-
-	if (typeof(partitionKey) !== 'undefined') {
-		query = query.where('PartitionKey eq ?', partitionKey);
-	}
-
-	if (typeof(rowKey) !== 'undefined') {
-		query = query.where('RowKey eq ?', rowKey);
-	}
 
 	tableService.queryEntities(tableName, query, null, function(error, result){
 		promise.resolve(result.entries);
