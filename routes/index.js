@@ -239,4 +239,38 @@ router.post('/feedback', function(req, res) {
     });
 });
 
+router.get('/attendees/:id', function(req, res) {
+    var id = req.params.id;
+
+    dataStorage.getEntities('AzureDayLocations', '2015-03', null, { UID : id }).then(function(result) {
+        if (result.length === 0) {
+            res.render('attendees', {
+                partials: getPartials(),
+                locationName: '',
+                attendeesCount: 0,
+                attendees: []
+            }, function(err, html) {
+                res.send(getMinifiedHtml(html));
+            });
+            return;
+        }
+
+        var locationKey = result[0].RowKey._ + ' ' + result[0].Address._;
+        if (typeof(result[0].Title) !== 'undefined') {
+            locationKey += ' (' + result[0].Title._ + ')';
+        }
+
+        dataStorage.getEntities('AzureDayRegistration', '2015-03', null, { Location : locationKey }).then(function(result) {
+            res.render('attendees', {
+                partials: getPartials(),
+                locationName: locationKey,
+                attendeesCount: result.length,
+                attendees: result
+            }, function(err, html) {
+                res.send(getMinifiedHtml(html));
+            });
+        })
+    });
+});
+
 module.exports = router;
