@@ -78,15 +78,21 @@ service.insertEntity = function(tableName, entity) {
 	return promise;
 };
 
-service.updateEntity = function(tableName, entity) {
+service.mergeEntity = function(tableName, entity) {
 	var promise = new Promise();
 
-	tableService.updateEntity(tableName, entity, function(error, result, response){
+	tableService.mergeEntity(tableName, entity, function(error, result, response){
+		console.log(error);
+
 		if (error) {
 			var message = null;
 
 			if (response.body['odata.error'].code === 'EntityAlreadyExists') {
-				message = 'Указаный вами EMail уже заполнил форму обратной связи.';
+				message = 'Вы уже заполнили форму обратной связи.';
+			}
+
+			if (response.body['odata.error'].code === 'ResourceNotFound') {
+				message = 'Вы зашли по неверной ссылке.';
 			}
 
 			promise.resolve({'isError' : true, errorMessage: message });
