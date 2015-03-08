@@ -261,6 +261,45 @@ router.get('/attendees/:id', function(req, res) {
         }
 
         dataStorage.getEntities('AzureDayRegistration', '2015-03', null, { Location : locationKey }).then(function(result) {
+            result.map(function(attendee){
+                var emailArr = attendee.RowKey._.split('@');
+
+                var len;
+
+                switch(emailArr[0].length) {
+                    case 0:
+                    case 1:
+                        len = 0;
+                        break;
+                    case 2:
+                        len = 1;
+                        break;
+                    case 3:
+                    case 4:
+                        len = 2;
+                        break;
+                    case 5:
+                        len = 3;
+                        break;
+                    default:
+                        len = 4;
+                        break;
+                }
+
+                attendee.RowKey._ = emailArr[0].substr(0, len).toLowerCase() + new Array(emailArr[0].length - len + 1).join("*") + "@" + emailArr[1];
+                attendee.FullName._ = attendee.FullName._.replace(/^[a-zа-я]/, function(m){ return m.toUpperCase() });
+            });
+
+            result = result.sort(function(a, b) {
+                if (a.FullName._ < b.FullName._) {
+                    return -1;
+                }
+                if (a.FullName._ > b.FullName._) {
+                    return 1;
+                }
+                return 0;
+            });
+
             res.render('attendees', {
                 partials: getPartials(),
                 locationName: locationKey,
