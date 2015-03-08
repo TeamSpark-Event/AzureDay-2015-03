@@ -191,26 +191,37 @@ router.get('/live', function(req, res) {
 router.get('/feedback/:id', function(req, res) {
     var id = req.params.id;
 
-    nodePromise.all([
-        dataStorage.getEntities('AzureDayTopics', '2015-03')
-    ]).then(function(results) {
-        var topics = results[0];
+    dataStorage.getEntities('AzureDayFeedback', '2015-03', id).then(function(result){
+        if (result.length === 0) {
+            res.render('feedback', {
+                partials: getPartials(),
+                isShowFeedbackForm: false,
+                errorMessage: "Вы зашли по неверной ссылке."
+            }, function(err, html) {
+                res.send(getMinifiedHtml(html));
+            });
 
-        for(var i = 0; i < topics.length; i++) {
-            topics[i].index = i;
+            return;
         }
 
-        res.render('feedback', {
-            partials: getPartials(),
-            isShowFeedbackForm: true,
-            errorMessage: null,
-            name: "Boyko Anton",
-            email: "boyko.ant@live.com",
-            location: "online",
-            topics: topics,
-            id: id
-        }, function(err, html) {
-            res.send(getMinifiedHtml(html));
+        nodePromise.all([
+            dataStorage.getEntities('AzureDayTopics', '2015-03')
+        ]).then(function(results) {
+            var topics = results[0];
+
+            for(var i = 0; i < topics.length; i++) {
+                topics[i].index = i;
+            }
+
+            res.render('feedback', {
+                partials: getPartials(),
+                isShowFeedbackForm: true,
+                errorMessage: null,
+                topics: topics,
+                id: id
+            }, function(err, html) {
+                res.send(getMinifiedHtml(html));
+            });
         });
     });
 });
@@ -218,24 +229,39 @@ router.get('/feedback/:id', function(req, res) {
 router.post('/feedback', function(req, res) {
     var entity = {
         PartitionKey: { '_' : '2015-03' },
-        RowKey: { '_' : req.body.hidId },
-        EMail: { '_' : req.body.tbEmail },
-        FullName: { '_' : req.body.tbName },
-        Location: { '_' : req.body.tbLocation }
+        RowKey: { '_' : req.body["hidId"] }
     };
 
     for (var i = 0; i < 10; i++) {
         entity["speaker" + i] = { '_' : req.body["speaker" + i] };
     }
 
-    dataStorage.updateEntity('AzureDayFeedback', entity).then(function(){
-        res.render('feedback', {
-            partials: getPartials(),
-            isShowFeedbackForm: false,
-            errorMessage: null
-        }, function(err, html) {
-            res.send(getMinifiedHtml(html));
-        });
+    entity["subscribeMe"] = { '_' : req.body["ddlMailList"] };
+
+    entity["location"] = { '_' : req.body["location"] };
+    entity["video"] = { '_' : req.body["video"] };
+
+    entity["adv"] = { '_' : req.body["ddlSource"] };
+    entity["comments"] = { '_' : req.body["tbComments"] };
+
+    dataStorage.mergeEntity('AzureDayFeedback', entity).then(function(result){
+        if (result.isError) {
+            res.render('feedback', {
+                partials: getPartials(),
+                isShowFeedbackForm: false,
+                errorMessage: result.errorMessage
+            }, function(err, html) {
+                res.send(getMinifiedHtml(html));
+            });
+        } else {
+            res.render('feedback', {
+                partials: getPartials(),
+                isShowFeedbackForm: false,
+                errorMessage: null
+            }, function(err, html) {
+                res.send(getMinifiedHtml(html));
+            });
+        }
     });
 });
 
