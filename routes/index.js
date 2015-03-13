@@ -83,79 +83,91 @@ router.get('/agenda', function(req, res) {
 });
 
 router.get('/registration', function(req, res) {
-    dataStorage.getEntities('AzureDayLocations', '2015-03').then(function(result) {
-        res.render('registration', {
-            partials: getPartials(),
-            locations: result,
-            isShowRegistrationForm: true
-        }, function(err, html) {
-            res.send(getMinifiedHtml(html));
-        });
+    res.render('registration-closed', {
+        partials: getPartials()
+    }, function(err, html) {
+        res.send(getMinifiedHtml(html));
     });
+
+    //dataStorage.getEntities('AzureDayLocations', '2015-03').then(function(result) {
+    //    res.render('registration-closed', {
+    //        partials: getPartials(),
+    //        locations: result,
+    //        isShowRegistrationForm: true
+    //    }, function(err, html) {
+    //        res.send(getMinifiedHtml(html));
+    //    });
+    //});
 });
 
 router.post('/registration', function(req, res){
-    function isEmpty(val) {
-        return typeof(val) === 'undefined'
-            || val === null
-            || val.length === 0;
-    }
-
-    if (isEmpty(req.body.tbName) || isEmpty(req.body.tbEmail) || isEmpty(req.body.ddlLocation)) {
-        dataStorage.getEntities('AzureDayLocations', '2015-03').then(function(result) {
-            res.render('registration', {
-                partials: getPartials(),
-                isShowRegistrationForm: true,
-                errorMessage: 'Нужно заполнить все поля формы.',
-                locations: result
-            }, function(err, html) {
-                res.send(getMinifiedHtml(html));
-            });
-        });
-
-        return;
-    }
-
-    var entity = {
-        PartitionKey: { '_' : '2015-03' },
-        RowKey: { '_' : req.body.tbEmail },
-        FullName: { '_' : req.body.tbName },
-        Location: { '_' : req.body.ddlLocation }
-    };
-
-    dataStorage.insertEntity('AzureDayRegistration', entity).then(function(result){
-        if (result.isError) {
-            var errorMessage = result.errorMessage || 'Простите, произошла ошибка. Пожалуйста, попробуйте пройти регистрацию повторно.';
-
-            dataStorage.getEntities('AzureDayLocations', '2015-03').then(function(result) {
-                res.render('registration', {
-                    partials: getPartials(),
-                    isShowRegistrationForm: true,
-                    errorMessage: errorMessage,
-                    locations: result
-                }, function(err, html) {
-                    res.send(getMinifiedHtml(html));
-                });
-            });
-        } else {
-            var entityFeedback = {
-                PartitionKey: { '_' : '2015-03' },
-                RowKey: { '_' : uuid.v4() },
-                EMail: { '_' : req.body.tbEmail },
-                FullName: { '_' : req.body.tbName },
-                Location: { '_' : req.body.ddlLocation }
-            };
-
-            dataStorage.insertEntity('AzureDayFeedback', entityFeedback).then(function(){
-                res.render('registration', {
-                    partials: getPartials(),
-                    isShowRegistrationForm: false
-                }, function(err, html) {
-                    res.send(getMinifiedHtml(html));
-                });
-            });
-        }
+    res.render('registration-closed', {
+        partials: getPartials()
+    }, function(err, html) {
+        res.send(getMinifiedHtml(html));
     });
+
+    //function isEmpty(val) {
+    //    return typeof(val) === 'undefined'
+    //        || val === null
+    //        || val.length === 0;
+    //}
+    //
+    //if (isEmpty(req.body.tbName) || isEmpty(req.body.tbEmail) || isEmpty(req.body.ddlLocation)) {
+    //    dataStorage.getEntities('AzureDayLocations', '2015-03').then(function(result) {
+    //        res.render('registration', {
+    //            partials: getPartials(),
+    //            isShowRegistrationForm: true,
+    //            errorMessage: 'Нужно заполнить все поля формы.',
+    //            locations: result
+    //        }, function(err, html) {
+    //            res.send(getMinifiedHtml(html));
+    //        });
+    //    });
+    //
+    //    return;
+    //}
+    //
+    //var entity = {
+    //    PartitionKey: { '_' : '2015-03' },
+    //    RowKey: { '_' : req.body.tbEmail },
+    //    FullName: { '_' : req.body.tbName },
+    //    Location: { '_' : req.body.ddlLocation }
+    //};
+    //
+    //dataStorage.insertEntity('AzureDayRegistration', entity).then(function(result){
+    //    if (result.isError) {
+    //        var errorMessage = result.errorMessage || 'Простите, произошла ошибка. Пожалуйста, попробуйте пройти регистрацию повторно.';
+    //
+    //        dataStorage.getEntities('AzureDayLocations', '2015-03').then(function(result) {
+    //            res.render('registration', {
+    //                partials: getPartials(),
+    //                isShowRegistrationForm: true,
+    //                errorMessage: errorMessage,
+    //                locations: result
+    //            }, function(err, html) {
+    //                res.send(getMinifiedHtml(html));
+    //            });
+    //        });
+    //    } else {
+    //        var entityFeedback = {
+    //            PartitionKey: { '_' : '2015-03' },
+    //            RowKey: { '_' : uuid.v4() },
+    //            EMail: { '_' : req.body.tbEmail },
+    //            FullName: { '_' : req.body.tbName },
+    //            Location: { '_' : req.body.ddlLocation }
+    //        };
+    //
+    //        dataStorage.insertEntity('AzureDayFeedback', entityFeedback).then(function(){
+    //            res.render('registration', {
+    //                partials: getPartials(),
+    //                isShowRegistrationForm: false
+    //            }, function(err, html) {
+    //                res.send(getMinifiedHtml(html));
+    //            });
+    //        });
+    //    }
+    //});
 });
 
 router.get('/speakers', function(req, res) {
