@@ -188,6 +188,14 @@ router.get('/live', function(req, res) {
     });
 });
 
+router.get('/live-test', function(req, res) {
+    res.render('live-test', {
+        partials: getPartials()
+    }, function(err, html) {
+        res.send(getMinifiedHtml(html));
+    });
+});
+
 router.get('/feedback/:id', function(req, res) {
     var id = req.params.id;
 
