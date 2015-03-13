@@ -1,0 +1,22 @@
+{{<layout}}
+	{{$content}}
+        <div class="container main-text" style="width: 1200px;">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h2>
+                        Интернет-трансляция <span class="bold-blue" style="font-size: 1.3em;">AzureDAY 2015</span>
+                    </h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+
+	                <object width="100%" height="100%" id="flashPlayer" data="http://D28C.wpc.azureedge.net/80D28C/amsplayer/assets/StrobeMediaPlayback.2.0.swf" type="application/x-shockwave-flash" style="visibility: visible;"><param name="allowfullscreen" value="true"><param name="wmode" value="direct"><param name="flashvars" value="src= http://azureday.streaming.mediaservices.windows.net/0a579b5c-9dc6-417c-b6a7-8fae04d77cb6/df47d8e9-1951-4092-aa08-44b2033a2f81.ism/Manifest&amp;autoPlay=true&amp;plugin_AdaptiveStreamingPlugin=http://D28C.wpc.azureedge.net/80D28C/amsplayer/assets/MSAdaptiveStreamingPlugin-v1.0.13-osmf2.0.swf&amp;AdaptiveStreamingPlugin_retryLive=true&amp;AdaptiveStreamingPlugin_retryInterval=10">
+                    </object>
+
+                </div>
+            </div>
+        </div>
+	{{/content}}
+{{/layout}}

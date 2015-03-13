@@ -44,6 +44,14 @@
 									<!--<td>{{ agenda.EndTime._ }}</td>-->
 									<td>
 										{{#topic}}
+                                            <div>
+                                                <a target="_blank" href="{{ topic.FacebookQ._ }}" alt="facebook" style="display: inline-block; width: 40px; height: 40px; background-image: url('images/icons/fb40.png'); margin: 0 15px 0 0;">
+	                                                &nbsp;
+                                                </a>
+	                                            <a target="_blank" href="{{ topic.TwitterQ._ }}" alt="twitter" style="display: inline-block; width: 40px; height: 40px; background-image: url('images/icons/tw40.png'); margin: 0 15px 0 0;">
+		                                            &nbsp;
+	                                            </a>
+                                            </div>
 											<p style="font-weight: bold; color: #666;">
                                                 {{ topic.Speaker._ }} / {{ topic.Title._ }}
                                             </p>
