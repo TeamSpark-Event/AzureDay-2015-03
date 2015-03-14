@@ -6,6 +6,8 @@ var minify = require('html-minifier').minify;
 var express = require('express');
 var router = express.Router();
 
+var nconf = require('nconf');
+
 var nodePromise = require("node-promise");
 
 var dataStorage = require(path.join(__dirname, '../services/DataStorage'));
@@ -193,8 +195,11 @@ router.get('/locations', function(req, res) {
 });
 
 router.get('/live', function(req, res) {
+    var live = nconf.get('LIVE');
+
     res.render('live', {
-        partials: getPartials()
+        partials: getPartials(),
+        live: live
     }, function(err, html) {
         res.send(getMinifiedHtml(html));
     });
