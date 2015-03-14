@@ -24,7 +24,7 @@
 
 	                <object width="100%" height="600" id="flashPlayer" data="http://D28C.wpc.azureedge.net/80D28C/amsplayer/assets/StrobeMediaPlayback.2.0.swf" type="application/x-shockwave-flash" style="visibility: visible;">
 		                <param name="allowfullscreen" value="true"><param name="wmode" value="direct">
-		                <param name="flashvars" value="src=http://azureday.streaming.mediaservices.windows.net/ae809d03-0368-45cd-93b6-6eb1fde696a9/d378ca98-00c6-40a3-8072-3396fd562d21.ism/Manifest&amp;autoPlay=true&amp;plugin_AdaptiveStreamingPlugin=http://D28C.wpc.azureedge.net/80D28C/amsplayer/assets/MSAdaptiveStreamingPlugin-v1.0.13-osmf2.0.swf&amp;AdaptiveStreamingPlugin_retryLive=true&amp;AdaptiveStreamingPlugin_retryInterval=10">
+		                <param name="flashvars" value="src=http://azureday.streaming.mediaservices.windows.net/a8c8ff6e-1f98-41e5-a034-2966dc360419/54e3172b-b588-4d3b-8284-68edd6db577c.ism/Manifest&amp;autoPlay=true&amp;plugin_AdaptiveStreamingPlugin=http://D28C.wpc.azureedge.net/80D28C/amsplayer/assets/MSAdaptiveStreamingPlugin-v1.0.13-osmf2.0.swf&amp;AdaptiveStreamingPlugin_retryLive=true&amp;AdaptiveStreamingPlugin_retryInterval=10">
 	                </object>
 
                     <div>
