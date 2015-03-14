@@ -18,6 +18,10 @@
                         <!--Подключиться к трансляции смогут все желающие, ограничения на количество мест нет.-->
                     <!--</p>-->
 
+	                <div>
+		                Ссылка на резервную трансляцию <a href="https://new.livestream.com/accounts/12589030/events/3884083" target="_blank">тут</a>
+	                </div>
+
 	                <object width="100%" height="600" id="flashPlayer" data="http://D28C.wpc.azureedge.net/80D28C/amsplayer/assets/StrobeMediaPlayback.2.0.swf" type="application/x-shockwave-flash" style="visibility: visible;">
 		                <param name="allowfullscreen" value="true"><param name="wmode" value="direct">
 		                <param name="flashvars" value="src=&amp;autoPlay=true&amp;plugin_AdaptiveStreamingPlugin=http://D28C.wpc.azureedge.net/80D28C/amsplayer/assets/MSAdaptiveStreamingPlugin-v1.0.13-osmf2.0.swf&amp;AdaptiveStreamingPlugin_retryLive=true&amp;AdaptiveStreamingPlugin_retryInterval=10">
