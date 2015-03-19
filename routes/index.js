@@ -234,7 +234,7 @@ router.get('/feedback/:id', function(req, res) {
         ]).then(function(results) {
             var topics = results[0];
 
-            for(var i = 0; i < topics.length; i++) {
+            for(var i = 0; i < topics.length - 1; i++) {
                 topics[i].index = i;
             }
 
