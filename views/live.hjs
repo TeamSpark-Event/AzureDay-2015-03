@@ -31,7 +31,11 @@
                         <!--Ссылка на резервную трансляцию <a href="https://new.livestream.com/accounts/12589030/events/3884083" target="_blank">тут</a>-->
                     <!--</div>-->
 
-	                <iframe width="853" height="480" src="https://www.youtube.com/embed/videoseries?list=PLi8gartTlTVxDQWq9iEUzKw52K-ENdXa1" frameborder="0" allowfullscreen></iframe>
+                    <p>
+                        Тут вы можете увидеть полную запись всех докладов с нашей конференции.
+                    </p>
+
+	                <iframe width="1165" height="655" src="https://www.youtube.com/embed/videoseries?list=PLi8gartTlTVxDQWq9iEUzKw52K-ENdXa1" frameborder="0" allowfullscreen></iframe>
 
                 </div>
             </div>
